@@ -1,0 +1,5 @@
+#N canvas 252 224 504 57 10;
+#X text 325 12 by Pierre Guillot - 2016;
+#X obj 11 11 cnv 15 300 18 empty empty \$1 2 8 0 14 -262144 -66577
+0;
+#X coords 0 -1 1 1 465 20 2 10 10;

@@ -1,0 +1,84 @@
+#N canvas 650 90 510 675 10;
+#X declare -lib Gem;
+#X obj 84 225 +~ 1;
+#X obj 84 249 *~ 0.5;
+#X text 80 158 Low Frequency Oscillator;
+#X text 190 335 x[n-t];
+#X text 194 255 Depth (ms);
+#X text 27 383 x[n];
+#X obj 84 382 *~ 1;
+#X text 97 415 y[n] = x[n] + ax[n-t];
+#X text 165 356 Feedback (0-1);
+#X obj 84 202 osc~ 1;
+#X text 127 382 ax[n-t];
+#X text 140 177 Rate (Hz);
+#X text 207 285 Shift (ms);
+#X obj 63 414 +~, f 4;
+#X obj 84 180 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-rate empty 0 -8 0
+10 -262144 -1 -1 0.3 256;
+#X obj 135 259 nbx 5 14 0 1e+37 0 0 empty \$0-depth empty 0 -8 0 10
+-262144 -1 -1 0.35 256;
+#X obj 147 289 nbx 5 14 0 1e+37 0 0 empty \$0-shift empty 0 -8 0 10
+-262144 -1 -1 0.2 256;
+#X obj 105 358 nbx 5 14 0 1 0 0 empty \$0-feedback empty 0 -8 0 10
+-262144 -1 -1 1 256;
+#X obj 84 278 *~ 1, f 9;
+#X obj 84 308 +~ 0.001, f 11;
+#X obj 63 108 noise~;
+#N canvas 194 150 450 300 init 0;
+#X obj 222 58 loadbang;
+#X obj 222 114 s \$0-rate;
+#X obj 282 114 s \$0-depth;
+#X obj 313 164 s \$0-shift;
+#X obj 223 164 s \$0-feedback;
+#X msg 223 142 1;
+#X msg 223 192 1;
+#X obj 223 214 s \$0-sp;
+#X msg 222 92 0.3;
+#X msg 282 92 0.35;
+#X msg 313 142 0.2;
+#X msg 253 192 amp 1.5;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 0 0 10 0;
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 0 0 11 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 1 0;
+#X connect 9 0 2 0;
+#X connect 10 0 3 0;
+#X connect 11 0 7 0;
+#X restore 15 7 pd init;
+#X obj 222 440 r \$0-sp;
+#X obj 90 137 delwrite~ \$0-delay 5000;
+#X obj 84 335 vd~ \$0-delay, f 16;
+#X obj 63 436 *~ 0.5;
+#X text 12 24 The sonogram offers a visual representation of the spectrum
+of frequencies of a signal as it varies with time. The horizontal axis
+represents time as a number of FFT frames. The vertical axis represents
+the frequency bins that depend on the FFT size. The amplitude of a
+frequency bin at a particular time is represented by the color. The
+sonogram uses a lot of of CPU load but it can be useful for didactic
+purposes., f 77;
+#X obj 93 464 pad.sonogram~;
+#X obj 14 4 pad.header pad.sonogram~;
+#X obj 63 616 pad.output~;
+#X connect 0 0 1 0;
+#X connect 1 0 18 0;
+#X connect 6 0 13 1;
+#X connect 9 0 0 0;
+#X connect 13 0 25 0;
+#X connect 14 0 9 0;
+#X connect 15 0 18 1;
+#X connect 16 0 19 1;
+#X connect 17 0 6 1;
+#X connect 18 0 19 0;
+#X connect 19 0 24 0;
+#X connect 20 0 13 0;
+#X connect 20 0 23 0;
+#X connect 22 0 27 1;
+#X connect 24 0 6 0;
+#X connect 25 0 27 0;
+#X connect 25 0 29 0;
