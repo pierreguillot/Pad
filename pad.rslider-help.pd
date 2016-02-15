@@ -1,0 +1,51 @@
+#N struct 1130-template-slider float xl float xr;
+#N canvas 485 45 490 273 10;
+#N canvas 194 150 450 300 init 0;
+#X obj 222 58 loadbang;
+#X obj 222 114 s \$0-rate;
+#X obj 282 114 s \$0-depth;
+#X obj 313 164 s \$0-shift;
+#X obj 223 164 s \$0-feedback;
+#X msg 223 142 1;
+#X msg 222 92 0.3;
+#X msg 282 92 0.35;
+#X msg 313 142 0.2;
+#X msg 223 192 1;
+#X obj 223 214 s \$0-sp;
+#X msg 253 192 ampscale 1;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 5 0;
+#X connect 0 0 9 0;
+#X connect 0 0 11 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 11 0 10 0;
+#X restore 19 7 pd init;
+#X obj 14 4 pad.header pad.rslider~;
+#X obj 35 154 pad.rslider;
+#X obj 35 199 unpack;
+#X obj 35 221 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.171154 256;
+#X obj 68 241 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.915064 256;
+#X obj 35 128 pack;
+#X obj 35 51 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.71 256;
+#X obj 68 71 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 -5.33 256;
+#X obj 68 90 t b f;
+#X text 12 24 The range slider is a the two value counterpart of slider.
+, f 77;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 9 1 6 1;
