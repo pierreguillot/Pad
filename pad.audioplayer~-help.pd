@@ -1,5 +1,5 @@
-#N struct 1183-template-slider float xl float xr;
-#N canvas 485 45 493 327 10;
+#N struct 1015-template-slider float xl float xr;
+#N canvas 525 44 493 327 10;
 #N canvas 194 150 450 300 init 0;
 #X obj 222 58 loadbang;
 #X obj 222 114 s \$0-rate;
@@ -26,9 +26,13 @@
 #X connect 9 0 10 0;
 #X connect 11 0 10 0;
 #X restore 19 7 pd init;
-#X obj 14 4 pad.header pad.rslider~;
-#X text 12 24 The range slider is a the two value counterpart of slider.
-, f 77;
-#X obj 72 102 pad.audioplayer~;
+#X obj 14 4 pad.header pad.audioplayer~;
 #X obj 72 267 pad.output~;
-#X connect 3 0 4 0;
+#X obj 72 110 pad.audioplayer~;
+#X text 12 24 The audio player that allows to load and play a sound
+file. The button at the top right corner of the buffer pops up a window
+to choose the file. The first toggle on the left plays or stops the
+buffer. The second toggle enables the loop. The slider controls the
+gain and the range slider allows to select a part of a the buffer.
+, f 77;
+#X connect 3 0 2 0;
