@@ -1,5 +1,5 @@
 #N struct 1183-template-slider float xl float xr;
-#N canvas 485 45 549 413 10;
+#N canvas 485 45 493 327 10;
 #N canvas 194 150 450 300 init 0;
 #X obj 222 58 loadbang;
 #X obj 222 114 s \$0-rate;
