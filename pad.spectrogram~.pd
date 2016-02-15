@@ -52,13 +52,11 @@
 #X obj 395 594 pack 1 1024;
 #X msg 395 624 bounds 0 \$1 \$2 0;
 #N canvas 42 270 450 300 cadre 0;
-#X obj 244 161 s \$0-scale-mode;
-#X obj 127 182 s \$0-onoff;
-#X text 115 102 State;
+#X text 119 102 State;
 #X text 162 102 FFT Size;
 #X text 242 102 Amplitude Scale;
-#X obj 165 118 nbx 5 14 2 1e+37 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 1024 256;
+#X obj 165 118 nbx 5 14 2 1e+37 0 0 \$0-fft-size \$0-fft-sizei empty
+0 -8 0 10 -262144 -1 -1 1024 256;
 #X msg 145 77 set \$1;
 #N canvas 0 22 450 300 toPowerOf2 0;
 #X obj 230 98 log;
@@ -87,9 +85,8 @@
 #X connect 9 0 7 0;
 #X connect 10 0 2 0;
 #X restore 145 145 pd toPowerOf2;
-#X obj 165 169 s \$0-fft-size;
-#X obj 127 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 127 118 tgl 15 0 \$0-onoff \$0-onoffi empty 17 7 0 10 -262144
+-1 -1 0 1;
 #N canvas 0 22 450 300 toScale 0;
 #X obj 116 162 sel 0 1 2;
 #X obj 116 184 symbol Rms;
@@ -102,9 +99,9 @@
 #X obj 152 45 f 2;
 #X obj 168 96 inlet;
 #X obj 165 139 outlet;
-#X obj 228 96 inlet;
-#X obj 225 139 outlet;
 #X obj 187 46 bang;
+#X obj 228 96 r \$0-scale-modet;
+#X obj 225 139 s \$0-scale-modeti;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 0 2 3 0;
@@ -114,34 +111,24 @@
 #X connect 4 0 6 0;
 #X connect 4 1 7 0;
 #X connect 4 2 8 0;
-#X connect 4 3 13 0;
-#X connect 5 0 12 0;
+#X connect 4 3 11 0;
+#X connect 5 0 13 0;
 #X connect 6 0 10 0;
 #X connect 7 0 10 0;
 #X connect 8 0 10 0;
 #X connect 9 0 0 0;
-#X connect 11 0 4 0;
-#X connect 13 0 10 0;
-#X restore 259 141 pd toScale;
-#X obj 244 118 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
-#X symbolatom 293 119 10 0 0 0 - - -, f 10;
-#X obj 282 69 r \$0-scale-modei;
-#X obj 165 12 r \$0-fft-sizei;
-#X obj 60 8 r \$0-onoffi;
-#X connect 5 0 7 0;
-#X connect 5 0 8 0;
-#X connect 6 0 5 0;
-#X connect 7 0 6 0;
-#X connect 9 0 1 0;
-#X connect 10 0 11 0;
-#X connect 10 1 12 0;
 #X connect 11 0 10 0;
-#X connect 11 0 0 0;
-#X connect 12 0 10 1;
-#X connect 13 0 11 0;
-#X connect 14 0 5 0;
-#X connect 15 0 9 0;
+#X connect 12 0 4 0;
+#X restore 259 141 pd toScale;
+#X obj 244 118 hradio 15 1 0 3 \$0-scale-mode \$0-scale-modei empty
+0 -8 0 10 -262144 -1 -1 0;
+#X symbolatom 293 119 10 0 0 0 - #0-scale-modeti #0-scale-modet, f
+10;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 7 0;
 #X coords 0 -1 1 1 346 40 2 100 100;
 #X restore 100 120 pd cadre;
 #X obj 255 522 t f b f f, f 11;
