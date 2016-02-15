@@ -9,24 +9,24 @@
 0;
 #X obj 156 104 cnv 4 4 12 empty \$0-hot1 empty 20 12 0 14 -262144 -262144
 0;
-#X obj 132 104 cnv 4 4 12 empty \$0-tepid3 empty 20 12 0 14 -42246
--42246 0;
-#X obj 126 104 cnv 4 4 12 empty \$0-tepid2 empty 20 12 0 14 -42246
--42246 0;
-#X obj 120 104 cnv 4 4 12 empty \$0-tepid1 empty 20 12 0 14 -42246
--42246 0;
-#X obj 150 104 cnv 4 4 12 empty \$0-warm3 empty 20 12 0 14 -241291
--241291 0;
-#X obj 144 104 cnv 4 4 12 empty \$0-warm2 empty 20 12 0 14 -241291
--241291 0;
-#X obj 138 104 cnv 4 4 12 empty \$0-warm1 empty 20 12 0 14 -241291
--241291 0;
-#X obj 114 104 cnv 4 4 12 empty \$0-cold3 empty 20 12 0 14 -166441
--166441 0;
-#X obj 108 104 cnv 4 4 12 empty \$0-cold2 empty 20 12 0 14 -166441
--166441 0;
-#X obj 102 104 cnv 4 4 12 empty \$0-cold1 empty 20 12 0 14 -166441
--166441 0;
+#X obj 132 104 cnv 4 4 12 empty \$0-tepid3 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 126 104 cnv 4 4 12 empty \$0-tepid2 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 120 104 cnv 4 4 12 empty \$0-tepid1 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 150 104 cnv 4 4 12 empty \$0-warm3 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 144 104 cnv 4 4 12 empty \$0-warm2 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 138 104 cnv 4 4 12 empty \$0-warm1 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 114 104 cnv 4 4 12 empty \$0-cold3 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 108 104 cnv 4 4 12 empty \$0-cold2 empty 20 12 0 14 -262144
+-262144 0;
+#X obj 102 104 cnv 4 4 12 empty \$0-cold1 empty 20 12 0 14 -262144
+-262144 0;
 #X obj 217 166 change;
 #X msg 217 213 color \$1 \$1;
 #X obj 217 239 s \$0-cold1;
