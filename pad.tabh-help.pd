@@ -1,0 +1,50 @@
+#N struct 1052-template-master float x float x2 float color float colort
+float xs float ys symbol sym;
+#N canvas 364 124 697 410 10;
+#N canvas 194 150 450 300 init 0;
+#X obj 222 58 loadbang;
+#X obj 222 114 s \$0-rate;
+#X obj 282 114 s \$0-depth;
+#X obj 313 164 s \$0-shift;
+#X obj 223 164 s \$0-feedback;
+#X msg 223 142 1;
+#X msg 222 92 0.3;
+#X msg 282 92 0.35;
+#X msg 313 142 0.2;
+#X msg 223 192 1;
+#X obj 223 214 s \$0-sp;
+#X msg 253 192 ampscale 1;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 5 0;
+#X connect 0 0 9 0;
+#X connect 0 0 11 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 11 0 10 0;
+#X restore 19 7 pd init;
+#X obj 14 4 pad.header pad.vumeter~;
+#X text 12 24 The volume unit meter offers a visual representation
+of the signal level. This implementation displays a set of 15 leds
+where each led repesents about 8.33 dB from 0 dB to 100 dB. The leds
+are ordered in 4 subsets : cold \, tepid \, warm and hot and the over
+led blinks and persists 500 ms when the signal reaches 100 dB., f
+77;
+#X obj 110 290 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 97 182 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X msg 161 178 symbol erer;
+#X msg 341 159 list 0.05 -0.4 zaza dedede kiki;
+#X msg 391 209 list 0.05 -0.4 zaza dedede kiki john;
+#X obj 95 225 pad.tabh;
+#X obj 245 275 pad.tabh;
+#X connect 4 0 8 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 1;
+#X connect 7 0 9 1;
+#X connect 8 0 3 0;
