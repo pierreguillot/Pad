@@ -1,6 +1,6 @@
-#N struct 1052-template-master float x float x2 float color float colort
+#N struct 1039-template-master float x float x2 float color float colort
 float xs float ys symbol sym;
-#N canvas 364 124 697 410 10;
+#N canvas 628 74 491 403 10;
 #N canvas 194 150 450 300 init 0;
 #X obj 222 58 loadbang;
 #X obj 222 114 s \$0-rate;
@@ -28,23 +28,53 @@ float xs float ys symbol sym;
 #X connect 11 0 10 0;
 #X restore 19 7 pd init;
 #X obj 14 4 pad.header pad.vumeter~;
-#X text 12 24 The volume unit meter offers a visual representation
-of the signal level. This implementation displays a set of 15 leds
-where each led repesents about 8.33 dB from 0 dB to 100 dB. The leds
-are ordered in 4 subsets : cold \, tepid \, warm and hot and the over
-led blinks and persists 500 ms when the signal reaches 100 dB., f
-77;
-#X obj 110 290 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+#X obj 58 319 pad.tabh;
+#X obj 58 294 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
 -262144 -1 -1 0 256;
-#X obj 97 182 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+#X msg 290 232 size 200 18;
+#X obj 58 372 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
 -262144 -1 -1 0 256;
-#X msg 161 178 symbol erer;
-#X msg 341 159 list 0.05 -0.4 zaza dedede kiki;
-#X msg 391 209 list 0.05 -0.4 zaza dedede kiki john;
-#X obj 95 225 pad.tabh;
-#X obj 245 275 pad.tabh;
-#X connect 4 0 8 0;
-#X connect 5 0 8 0;
-#X connect 6 0 8 1;
-#X connect 7 0 9 1;
-#X connect 8 0 3 0;
+#X text 20 371 Index;
+#X symbolatom 251 372 10 0 0 0 - - -, f 10;
+#X text 318 372 symbol;
+#X msg 34 152 symbol Innervisions;
+#X msg 34 172 symbol Song;
+#X msg 34 192 symbol in;
+#X msg 34 212 symbol the;
+#X obj 251 158 loadbang;
+#X msg 34 252 symbol of;
+#X msg 34 232 symbol key;
+#X msg 34 272 symbol life;
+#X msg 290 209 pos 0.03 0.2;
+#X msg 291 189 set Song in the key of life;
+#X msg 202 136 set Innervisions;
+#X obj 304 253 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 304 278 toggle \$1;
+#X text 12 24 The tab displays a list of symbols that can be triggered
+like buttons or toggles. Right inlet accepts set message to define
+the list of symbols. The pos message followed by two floats defines
+the x and y position of the symbols within the boxes (0-1) and the
+size message followed by two floats defines the width and the height
+of the tab. The toggle message followed by a number activates or desactivates
+the toggle mode. In the left inlet the symbols can be triggered with
+the matching symbols or the index of the symbols., f 77;
+#X connect 2 0 5 0;
+#X connect 2 1 7 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;
+#X connect 13 0 18 0;
+#X connect 13 0 17 0;
+#X connect 13 0 4 0;
+#X connect 14 0 2 0;
+#X connect 15 0 2 0;
+#X connect 16 0 2 0;
+#X connect 17 0 2 1;
+#X connect 18 0 2 1;
+#X connect 19 0 2 1;
+#X connect 20 0 21 0;
+#X connect 21 0 2 1;
