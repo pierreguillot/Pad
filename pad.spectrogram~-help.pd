@@ -1,3 +1,5 @@
+#N struct 1052-template-master float x float x2 float color float colort
+float xs float ys symbol sym;
 #N canvas 753 23 510 779 10;
 #X obj 135 185 +~ 1;
 #X obj 135 209 *~ 0.5;
